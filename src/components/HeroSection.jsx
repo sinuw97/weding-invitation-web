@@ -31,7 +31,7 @@ export default function HeroSection() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    fetch("/audio/enchanted.mp3")
+    fetch("/audio/Enchanted.mp3")
       .then((res) => res.blob())
       .then((blob) => {
         const url = URL.createObjectURL(blob);
