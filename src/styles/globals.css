@@ -17,8 +17,24 @@
   box-sizing: border-box;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.music-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 0px 50px;
+  margin-top: 25px;
+}
+
 .hero-section {
-  background-image: url('/img/prewed/DSC_6316.JPG');
+  background-image: linear-gradient(to top, #FAEED1, #00000000), url('/img/prewed/DSC_6316.JPG');
+  background-color: var(--cream);
   background-position: center;
   background-size: cover;
   width: 100%;
@@ -29,6 +45,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   padding: 70px;
   font-size: 18px;
 }
@@ -56,12 +73,12 @@
 .hero-section__button {
   font-family: "Ubuntu", sans-serif;
   margin-bottom: 0px;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .hero-section__button button {
-  background-color: rgba(255, 255, 255, 0.335);
-  padding: 6px 10px;
+  background-color: var(--light-blue);
+  padding: 6px 15px;
   border-radius: 15px;
 }
 
@@ -201,7 +218,6 @@
 }
 
 /* place-timeline-section */
-
 .place-timeline-section{
   width: 100%;
   height: auto;
@@ -369,7 +385,10 @@
 }
 
 .gmaps__info {
-  text-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .gmaps__info h1 {
@@ -652,18 +671,167 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   background-color: var(--sky-blue);
 }
 
 .footer__text {
-  text-align: center;
   font-family: "Ubuntu", sans-serif;
   font-size: 16.5pt;
   padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.footer__text img {
-  width: 250px;
-  height: 25px;
-  margin: 5px 250px;
+.footer__gambar {
+  width: 200px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 40px 20px;
+  }
+
+  .hero-section__wrapper {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .hero-section__text-box {
+    width: 100%;
+    max-width: 633px;
+    font-size: 14pt;
+  }
+
+  .hero-section__name-box {
+    font-size: 32pt;
+  }
+
+  .hero-section__button {
+    padding-top: 25px;
+  }
+
+  .hero-section__button button {
+    background-color: var(--light-blue);
+    font-size: 1.2rem;
+  }
+
+  .date-time {
+    padding-top: 200px;
+  }
+
+  .photo {
+    width: 250px;
+    height: 250px;
+    margin: 20px 0;
+  }
+
+  .pasutri-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bride-text {
+    text-align: center;
+    width: 100%;
+  }
+  .text h3{
+    font-size: 3em;
+    border-bottom: 1px solid black;
+  }
+
+  .groom-text {
+    text-align: center;
+    width: 100%;
+    order: 4;
+  }
+
+  .groom-photo {
+    order: 3;
+  }
+
+  #groom {
+    text-align: center;
+  }
+
+  .ceremony-reception-section {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .ceremony__card,
+  .reception__card {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .countdown__container {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .gift-card__container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .gift-card {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .story__grid {
+    grid-template-columns: 1fr;
+    height: auto;
+    padding: 20px;
+  }
+
+  .timeline__grid,
+  .photo-story {
+    width: 100%;
+    height: 250px;
+  }
+
+  .gmaps-section {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .gmaps-section iframe {
+    width: 100%;
+    height: 250px;
+  }
+
+  .view-location {
+    margin: 20px 50px;
+  }
+
+  .gift__info {
+    padding: 0 20px;
+  }
+
+  .rsvp__form {
+    width: 90%;
+  }
+  
+  .footer__text {
+    font-size: 1.2rem;
+    padding: 25px 25px;
+  }
+
+  .footer__gambar {
+    width: 150px;
+  }
 }

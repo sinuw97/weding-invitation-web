@@ -9,15 +9,17 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <Decoration />
-      <section className="place-timeline-section">
-        <AcaraSection />
-      </section>
-      <RSVPForm />
-      <Decoration />
-      <Gallery />
-      <Decoration />
+      <main>
+        <Decoration />
+        <section className="place-timeline-section">
+          <AcaraSection />
+        </section>
+        <RSVPForm />
+        <Decoration />
+        <Gallery />
+        <Decoration />
+      </main>
       <Footer />
     </>
-  )
+  );
 }

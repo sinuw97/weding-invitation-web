@@ -1,4 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  initial: { opacity: 0, y: 50 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.8 },
+  viewport: { once: false, amount: 0.3 },
+};
+
 export function AyatQuran() {
   const [ayat, setAyat] = useState(null);
 
@@ -19,15 +28,23 @@ export function AyatQuran() {
         {ayat ? (
           <>
             <div className="arab-latin">
-              <p className="arab">{ayat.teksArab}</p>
-              <p className="latin">{ayat.teksLatin}</p>
+              <motion.p {...fadeUp} className="arab">
+                {ayat.teksArab}
+              </motion.p>
+              <motion.p {...fadeUp} className="latin">
+                {ayat.teksLatin}
+              </motion.p>
             </div>
-            <p className="terjemahan">"{ayat.teksIndonesia}"</p>
+            <motion.p {...fadeUp} className="terjemahan">
+              "{ayat.teksIndonesia}"
+            </motion.p>
           </>
         ) : (
           <p>Memuat ayat...</p>
         )}
-        <p className="ayat-info">Ar Rum 30:21</p>
+        <motion.p {...fadeUp} className="ayat-info">
+          Ar Rum 30:21
+        </motion.p>
       </div>
     </section>
   );

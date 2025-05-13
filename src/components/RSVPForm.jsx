@@ -1,14 +1,46 @@
 import React from "react";
 import { LuClipboardList } from "react-icons/lu";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import db from "../firebase.js";
+
+import { collection, addDoc } from "firebase/firestore";
+
+const fadeInScale = {
+  initial: { opacity: 0, scale: 0.8 },
+  whileInView: { opacity: 1, scale: 1 },
+  transition: { duration: 0.8, ease: "easeOut" },
+  viewport: { once: false, amount: 0.3 },
+};
+
+const slideUp = {
+  initial: { opacity: 0, y: 50 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, ease: "easeOut" },
+  viewport: { once: false, amount: 0.3 },
+};
+
+const fadeInSlide = {
+  initial: { opacity: 0, x: -50 },
+  whileInView: { opacity: 1, x: 0 },
+  transition: { duration: 0.8, ease: "easeOut" },
+  viewport: { once: false, amount: 0.3 },
+};
+
+const fadeInText = {
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
+  transition: { duration: 1, ease: "easeOut" },
+  viewport: { once: false, amount: 0.3 },
+};
 
 export function RSVPForm() {
   const [copyStatus, setCopyStatus] = useState("");
   const [kehadiran, setKehadiran] = useState("");
   const [name, setName] = useState("");
   const [jumlah, setJumlah] = useState(0);
-  const [doa, setDoa] = useState("");
+  const [pesan, setPesan] = useState("");
 
   const handlerCopy = (text) => {
     navigator.clipboard.writeText(text).then(() => {
@@ -18,40 +50,54 @@ export function RSVPForm() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = {
-      name,
-      kehadiran,
-      jumlah,
-      doa: doa || "NULL",
+
+    const dataYgDikirim = {
+      name: name,
+      kehadiran: kehadiran,
+      jumlah: jumlah,
+      pesan: pesan || "NULL",
+      timestamp: new Date(),
     };
-    console.log("RSVP data: ", data);
-    console.log("Data Berhasil Dikirim")
+
+    // Simpan data ke firestore
+    try {
+      const data = await addDoc(collection(db, "rsvp"), {
+        ...dataYgDikirim,
+      });
+      console.log("error add doc: ", data.id);
+    } catch (err) {
+      console.error("Error adding document: ", err);
+    }
+    console.log("RSVP data: ", dataYgDikirim);
+    console.log("Data Berhasil Dikirim");
+    toast.success("Kehadiranmu telah disimpan!");
     // Reset form
     setName("");
     setKehadiran("");
     setJumlah(0);
-    setDoa("");
+    setPesan("");
   };
 
   return (
     <section className="gift-rsvp-sections">
-      <div className="bar-divider">
+      <motion.div className="bar-divider" {...fadeInSlide}>
         <span className="line"></span>
-        <h2>GIFT & RSVP</h2>
+        <motion.h2 {...fadeInText}>GIFT & RSVP</motion.h2>
         <span className="line"></span>
-      </div>
+      </motion.div>
       {/* GIFT */}
       <div className="gift-container">
         <div className="gift__info">
-          <h3>
+          <motion.h3 {...fadeInScale}>
             Kehadiran Anda adalah hadiah terbaik bagi kami. <br />
             Namun, jika berkenan memberikan tanda kasih, berikut detailnya:
-          </h3>
+          </motion.h3>
         </div>
         <div className="gift-card__container">
-          <div className="gift-card">
+          {/* BNI */}
+          <motion.div className="gift-card" {...slideUp}>
             <div className="card__logo">
               <p>Bank BNI</p>
               <img src="/img/logo/logo-bni.svg" alt="" />
@@ -70,8 +116,9 @@ export function RSVPForm() {
               </div>
             </div>
             <p className="card__nama">Dianita Agna Primaningtyas</p>
-          </div>
-          <div className="gift-card">
+          </motion.div>
+          {/* GOPAY */}
+          <motion.div className="gift-card" {...slideUp}>
             <div className="card__logo">
               <p>Gopay</p>
               <img src="/img/logo/logo-gopay.svg" alt="" />
@@ -90,33 +137,32 @@ export function RSVPForm() {
               </div>
             </div>
             <p className="card__nama">Dianita Agna Primaningtyas</p>
-          </div>
+          </motion.div>
         </div>
-        {copyStatus && <p className="copy-alert">{copyStatus}</p>}
 
         <div className="gift__info">
-          <h3>
+          <motion.h3 {...fadeInScale}>
             Atau juga bisa mengirimkan tanda kasih secara langsung ke alamat
             berikut
-          </h3>
+          </motion.h3>
         </div>
         <div className="gift-card__container">
-          <div className="gift-card">
+          <motion.div className="gift-card" {...slideUp}>
             <div className="card_alamat-info">
               <p>
                 Jl Kaliwidas, Kp. Mertodranan RT 03 RW 03 Kel Pasarkliwon, Kec
                 Pasarkliwon Surakarta 57118
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
       {/* RSVP */}
-      <div className="rsvp-container">
-        <div className="rsvp__title">
+      <motion.div className="rsvp-container" {...slideUp}>
+        <motion.div className="rsvp__title" {...fadeInSlide}>
           <h2>RSVP</h2>
           <p>Konfirmasi kehadiran Anda</p>
-        </div>
+        </motion.div>
         <div className="rsvp__form">
           <form onSubmit={handleSubmit} action={handleSubmit}>
             <div className="form__nama">
@@ -169,7 +215,7 @@ export function RSVPForm() {
                 name="jumlah"
                 value={jumlah}
                 onChange={(e) => setJumlah(e.target.value)}
-                />
+              />
             </div>
             <div className="form__doa">
               <label htmlFor="doa">Ucapan dan Doa</label>
@@ -177,8 +223,8 @@ export function RSVPForm() {
               <textarea
                 id="doa"
                 name="doa"
-                value={doa}
-                onChange={(e) => setDoa(e.target.value)}
+                value={pesan}
+                onChange={(e) => setPesan(e.target.value)}
               ></textarea>
             </div>
             <button type="submit" className="btn-rsvp">
@@ -186,7 +232,7 @@ export function RSVPForm() {
             </button>
           </form>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

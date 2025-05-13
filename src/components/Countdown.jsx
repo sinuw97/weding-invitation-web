@@ -1,4 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+
+const slideUp = {
+  initial: { opacity: 0, y: 50 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, ease: "easeOut" },
+  viewport: { once: false, amount: 0.3 },
+};
 
 const Countdown = ({ targetData }) => {
   const [timeLeft, setTimeLeft] = useState(null);
@@ -34,23 +42,30 @@ const Countdown = ({ targetData }) => {
   if (!timeLeft) return null;
 
   const timeArray = [
-    { label: 'Days', value: timeLeft.days },
-    { label: 'Hours', value: timeLeft.hours },
-    { label: 'Minutes', value: timeLeft.minutes },
-    { label: 'Seconds', value: timeLeft.seconds },
+    { label: "Days", value: timeLeft.days },
+    { label: "Hours", value: timeLeft.hours },
+    { label: "Minutes", value: timeLeft.minutes },
+    { label: "Seconds", value: timeLeft.seconds },
   ];
 
   return (
     <div className="countdown__container">
       {timeArray.map((item, index) => (
-        <div className="countdown-box" key={index}>
-          <div className="countdown__number">
+        <motion.div className="countdown-box" key={index} {...slideUp}>
+          <motion.div
+            className="countdown__number"
+            key={index}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: false, amount: 0.3 }}
+          >
             <h4>{item.value}</h4>
-          </div>
+          </motion.div>
           <div className="countdown__text">
             <h4>{item.label}</h4>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

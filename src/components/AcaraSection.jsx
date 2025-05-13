@@ -2,6 +2,35 @@ import Link from "next/link";
 import Countdown from "./Countdown";
 import { FaLocationDot } from "react-icons/fa6";
 import { SiGooglemaps } from "react-icons/si";
+import { motion } from "framer-motion";
+
+const fadeInScale = {
+  initial: { opacity: 0, scale: 0.8 },
+  whileInView: { opacity: 1, scale: 1 },
+  transition: { duration: 0.8, ease: "easeOut" },
+  viewport: { once: false, amount: 0.3 },
+};
+
+const slideUp = {
+  initial: { opacity: 0, y: 50 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, ease: "easeOut" },
+  viewport: { once: false, amount: 0.3 },
+};
+
+  const fadeInSlide = {
+    initial: { opacity: 0, x: -50 },
+    whileInView: { opacity: 1, x: 0 },
+    transition: { duration: 0.8, ease: "easeOut" },
+    viewport: { once: false, amount: 0.3 },
+  };
+
+const fadeInText = {
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
+  transition: { duration: 1, ease: "easeOut" },
+  viewport: { once: false, amount: 0.3 },
+};
 
 export default function AcaraSection() {
   const weddingDay = new Date("2025-06-15T09:00:00+07:00");
@@ -9,18 +38,18 @@ export default function AcaraSection() {
   return (
     <div className="acara-section">
       <div className="wedding-day">
-        <h3>Sunday, 15 June 2025</h3>
+        <motion.h3 {...fadeInScale}>Sunday, 15 June 2025</motion.h3>
       </div>
 
-      <div className="bar-divider">
+      <motion.div className="bar-divider" {...fadeInSlide}>
         <span className="line"></span>
-        <h2>THE WEDDING DAY</h2>
+        <motion.h2 {...fadeInText}>THE WEDDING DAY</motion.h2>
         <span className="line"></span>
-      </div>
+      </motion.div>
       {/* Countdown */}
       <Countdown targetData={weddingDay} />
       <div className="ceremony-reception-section">
-        <div className="ceremony__card">
+        <motion.div className="ceremony__card" {...slideUp}>
           <div className="ceremony-date">
             <h3>15 June 2025 | 09:00 WIB</h3>
             <h1>Akad Nikah</h1>
@@ -38,8 +67,9 @@ export default function AcaraSection() {
               <FaLocationDot /> Lihat Lokasi
             </div>
           </button>
-        </div>
-        <div className="reception__card">
+        </motion.div>
+        {/* Reception Card */}
+        <motion.div className="reception__card" {...slideUp}>
           <div className="reception-date">
             <h3>15 June 2025 | 09:45 WIB</h3>
             <h1>Resepsi</h1>
@@ -57,13 +87,13 @@ export default function AcaraSection() {
               <FaLocationDot /> Lihat Lokasi
             </div>
           </button>
-        </div>
+        </motion.div>
       </div>
-      <div className="bar-divider">
+      <motion.div className="bar-divider" {...fadeInSlide}>
         <span className="line"></span>
-        <h2>LOCATION</h2>
+        <motion.h2 {...fadeInText}>LOCATION</motion.h2>
         <span className="line"></span>
-      </div>
+      </motion.div>
       <div className="gmaps-section">
         <div className="gmaps__container">
           <iframe
@@ -76,7 +106,7 @@ export default function AcaraSection() {
             referrerPolicy="no-referrer"
           ></iframe>
         </div>
-        <div className="gmaps__info">
+        <motion.div className="gmaps__info" {...fadeInScale}>
           <h1>Gedung Al Irsyad</h1>
           <p>Jl. Kapten Mulyadi No.117, Kedung Lumbu, Surakarta</p>
           <button type="button" className="view-location">
@@ -87,7 +117,7 @@ export default function AcaraSection() {
               </Link>
             </div>
           </button>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
