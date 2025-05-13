@@ -1,26 +1,669 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #EEE9DA;
+  --light-blue: #BDCDD6;
+  --sky-blue: #93BFCF;
+  --dark-blue: #6096B4;
+  --darker-blue:#254f65B4;
+  --beige-cream: #DED0B6;
+  --cream: #FAEED1;
+  --grayish-blue: #607274;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.hero-section {
+  background-image: url('/img/prewed/DSC_6316.JPG');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 110vh;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.hero-section__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 70px;
+  font-size: 18px;
+}
+
+.hero-section__text-box {
+  width: 633px;
+  height: auto;
+  text-align: center;
+  font-size: 18pt;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.hero-section__name-box {
+  margin: 48px 0px;
+  font-size: 50pt;
+  font-family: 'Great Vibes', cursive;
+}
+
+.date-time {
+  font-family: "Ubuntu", sans-serif;
+  padding-top: 132px;
+  padding-bottom: 20px;
+}
+
+.hero-section__button {
+  font-family: "Ubuntu", sans-serif;
+  margin-bottom: 0px;
+  font-size: 25px;
+}
+
+.hero-section__button button {
+  background-color: rgba(255, 255, 255, 0.335);
+  padding: 6px 10px;
+  border-radius: 15px;
+}
+
+#date_time {
+  font-size: 15pt;
+  margin: 0;
+  padding: 0;
+}
+
+#date {
+  font-size: 27pt;
+  margin: 0;
+}
+
+.photo {
+  width: 514px;
+  height: 514px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+/* ayat */
+.ayat-section {
+  font-family: "Ubuntu", sans-serif;
+  padding: 30px 0;
+  background-color: var(--cream);
+  text-align: center;
+}
+
+.ayat-container {
+  display: flex;
+  gap: 3px;
+  padding: 0px 35px;
+  flex-direction: column;
+}
+
+.arab-latin {
+  margin-bottom: 10px;
+}
+
+.arab {
+  font-size: 20pt;
+  font-weight: bold;
+}
+
+.latin,
+.terjemahan {
+  font-size: 12.5pt;
+}
+
+.ayat-info {
+  font-size: 17pt;
+}
+
+/*  */
+.pasutri-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  height: auto;
+  padding: 2rem;
+  gap: 2rem;
+  background-color: var(--cream);
+}
+
+.foto {
+  background-color: #ccc;
+  width: 80%;
+  height: 450px;
+  justify-self: center;
+}
+
+.bride-photo {
+  background-image: url('/img/prewed/the-bride-mirror1.JPG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.bride-text {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  justify-self: start;
+  margin-left: -5px;
+}
+
+.groom-text {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
+  justify-self: end;
+}
+
+.groom-photo {
+  background-image: url('/img/prewed/the-groom-mirror1.JPG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.text h3 {
+  font-size: 45px;
+  font-family: 'Great Vibes', cursive;
+  border-bottom: 1px solid #000;
+  margin: 0;
+}
+
+.text p {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 20px;
+  font-style: italic;
+  margin: 0.2rem 0 0 0;
+}
+
+#groom {
+  text-align: end;
+}
+
+/* Decoration */
+.decoration {
+  background-color: var(--cream);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding-bottom: 15px;
+}
+.decoration img {
+  width: 500px;
+  height: 100px;
+}
+
+/* place-timeline-section */
+
+.place-timeline-section{
+  width: 100%;
+  height: auto;
+  background-color: var(--cream);
+}
+
+/* Acara Wedding */
+.acara-section {
+  font-family: "Ubuntu", sans-serif;
+  background-color: var(--cream);
+  text-align: center;
+}
+
+.wedding-day {
+  padding: 20px 0px;
+  font-size: 25px;
+}
+
+.bar-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  gap: 20px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.bar-divider .line {
+  flex: 1;
+  height: 2px;
+  background-color: #000000;
+}
+
+.bar-divider h2 {
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+.countdown__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  height: auto;
+  margin: 30px 0px;
+}
+
+.countdown-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--light-blue);
+  border-radius: 5px;
+  font-size: 21px;
+  width: 80px;
+  height: 65px;
+}
+
+.countdown__number {
+  font-size: 25px;
+  font-weight: bold;
+}
+.countdown__text {
+  font-size: 19px;
+}
+
+/* Ceremony n Reception card */
+.ceremony-reception-section{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 40PX;
+}
+
+.ceremony__card,
+.reception__card {
+  background-color: var(--light-blue);
+  width: 500px;
+  height: 400px;
+  padding: 35px 8px;
+  border-radius: 10px;
+}
+
+.ceremony-date,
+.reception-date {
+  margin-bottom: 65px;
+}
+
+.ceremony-date h3 {
+  font-size: 1.2rem;
+}
+
+.reception-date h3 {
+  font-size: 1.2rem;
+}
+
+.ceremony-date h1 {
+  font-size: 2.5rem;
+}
+
+.reception-date h1 {
+  font-size: 2.5rem;
+}
+
+.ceremony-place,
+.reception-place {
+  margin-bottom: 45px;
+  display: block;
+  margin: 0;
+}
+
+.ceremony-place span {
+  display: block;
+}
+
+.reception-place span {
+  display: block;
+}
+
+.ceremony-place .gedung,
+.reception-place .gedung {
+  font-size: 2.6rem;
+  font-weight: bolder;
+}
+
+.ceremony-place .alamat {
+  font-size: 20px;
+}
+
+.view-location {
+  margin-top: 37px;
+  background-color: var(--dark-blue);
+  color: white;
+  font-size: 20px;
+  padding: 10px 19px;
+  border: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  cursor: pointer;
+}
+
+.view-location:hover {
+  background-color: var(--grayish-blue);
+  color: var(--background);
+  transform: translateY(-5px);
+}
+
+.icon__text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Gmaps */
+.gmaps-section {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  padding: 25px 0px;
+}
+
+.gmaps__info {
+  text-align: start;
+}
+
+.gmaps__info h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.gmaps__info p {
+  font-size: 17px;
+}
+
+/* Story section */
+.story-section {
+  width: 100%;
+  height: 200vh;
+  background-color: var(--cream);
+  padding: 40px 30px;
+}
+
+.story__title {
+  font-size: 35px;
+}
+
+.story__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 25px;
+  background-color: white;
+  width: 100%;
+  height: 500px;
+  gap: 20px;
+  padding: 30px;
+}
+
+.timeline__grid {
+  background-color: #d3d3d3;
+  height: 500px;
+  width: 80%;
+}
+
+.photos__grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+}
+
+.photo-story {
+  margin-left: 50px;
+  background-color: #d3d3d3;
+  height: 350px;
+}
+
+/* GIFT */
+.gift-rsvp-sections {
+  font-family: "Ubuntu", sans-serif;
+  padding: 10px 0;
+  height: auto;
+  background-color: var(--cream);
+}
+
+.gift-container {
+  margin: 30px 0;
+}
+
+.gift-container h3 {
+  font-size: 23px;
+  text-align: center;
+}
+
+.gift-card__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  height: auto;
+  padding: 25px 0;
+}
+
+.gift-card {
+  width: 375px;
+  height: 210px;
+  background-color:  var(--light-blue);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 15px;
+  font-size: 20px;
+  box-shadow: 3px 8px 5px var(--grayish-blue);
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.card_alamat-info {
+  text-align: center;
+  gap: 25px;
+  margin: 65px 0;
+  font-weight: bold;
+}
+
+.gift-card:hover {
+  background-color: var(--dark-blue);
+  color: var(--background);
+  transform: translateY(-5px);
+}
+
+.card__logo {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.card__logo img{
+  width: 65px;
+  height: 65px;
+}
+
+.card_info {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  align-items: center;
+}
+
+.no__rek {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  gap: 3px;
+}
+
+.clipboard {
+  font-size: 20px;
+}
+
+.rek__number {
+  font-size: 18px;
+}
+
+.card__toggle {
+  font-size: 14px;
+  font-weight: normal;
+  color: #333;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.card__nama {
+  font-weight: bold;
+  text-align: center;
+}
+
+.copy-alert {
+  text-align: center;
+  color: #000000;
+  font-size: 1.2rem;
+  margin-top: 4px;
+}
+
+/* RSVP */
+.rsvp-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+  padding-bottom: 35px;
+}
+
+.rsvp__title {
+  font-size: 23px;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.rsvp__form {
+  width: 450px;
+  height: auto;
+  background-color: white;
+  padding: 20px 25px;
+  font-size: 18px;
+  border-radius: 20px;
+  box-shadow: 3px 8px 5px var(--grayish-blue);
+}
+
+.form__nama input {
+  border: 1px solid #757575;
+  width: 100%;
+  border-radius: 5px;
+  padding: 2px 8px;
+  margin-bottom: 10px;
+}
+
+.form__kehadiran {
+  margin-bottom: 10px;
+}
+
+.form__jumlah input {
+  border: 1px solid #757575;
+  width: 25%;
+  border-radius: 5px;
+  padding: 2px 8px;
+  margin-bottom: 10px;
+}
+
+.form__doa textarea {
+  border: 1px solid #757575;
+  width: 100%;
+  height: 100px;
+  border-radius: 5px;
+  padding: 2px 8px;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+.form__doa {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__doa span{
+  font-size: x-small;
+  font-style: italic;
+}
+
+.btn-rsvp {
+  background-color: var(--dark-blue);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.btn-rsvp:hover {
+  background-color: var(--darker-blue);
+  color: white;
+  transform: translateY(-5px);
+}
+
+/* GALLERY */
+.gallery-foto-section {
+  font-family: "Ubuntu", sans-serif;
+  background-color: var(--cream);
+}
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 35px 30px;
+  gap: 15px;
+  width: 100%;
+  height: auto;
+}
+
+.prewed {
+  width: 400px;
+  height: 400px;
+}
+
+.prewed img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+/* Footer */
+.footer-section {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--sky-blue);
+}
+
+.footer__text {
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16.5pt;
+  padding: 50px 0;
+}
+
+.footer__text img {
+  width: 250px;
+  height: 25px;
+  margin: 5px 250px;
 }
