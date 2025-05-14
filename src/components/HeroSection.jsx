@@ -52,29 +52,25 @@ export default function HeroSection({ name }) {
             </div>
 
             <div className="date-time">
-              <motion.p
+              <p
                 id="date_time"
-                {...fadeUp}
-                transition={{ duration: 0.8, delay: 0.3 }}
               >
                 Date & Time
-              </motion.p>
-              <motion.span
+              </p>
+              <span
                 id="date"
-                {...fadeUp}
-                transition={{ duration: 0.8, delay: 0.4 }}
               >
                 15 June 2025 <br /> 09:00 WIB
-              </motion.span>
+              </span>
             </div>
 
-            <motion.div
+            <div
               className="hero-section__button"
               {...fadeUp}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
               <button aria-label="Save the Date">Save the date</button>
-            </motion.div>
+            </div>
           </div>
           {/* Button with icon */}
           <div className="music-section">
@@ -89,6 +85,7 @@ export default function HeroSection({ name }) {
               preload="auto"
               loop
               controlsList="nodownload"
+              style={{ display: "hidden" }}
             />
 
             <input
