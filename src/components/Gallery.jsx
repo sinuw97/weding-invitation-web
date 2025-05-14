@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function Gallery() {
   const fadeInScale = {
@@ -21,42 +22,72 @@ export function Gallery() {
           {...fadeInScale}
           transition={{ delay: 0.1 }}
         >
-          <img src="/img/prewed/DSC_6323.JPG" alt="test" />
+          <Image
+            className="prewed-img"
+            src="/img/prewed/DSC_6323.webp"
+            fill
+            alt="gambar-prewed"
+          />
         </motion.div>
         <motion.div
           className="prewed"
           {...fadeInScale}
           transition={{ delay: 0.2 }}
         >
-          <img src="/img/prewed/DSC_6302.JPG" alt="test" />
+          <Image
+            className="prewed-img"
+            fill
+            src="/img/prewed/DSC_6302.webp"
+            alt="gambar-prewed"
+          />
         </motion.div>
         <motion.div
           className="prewed"
           {...fadeInScale}
           transition={{ delay: 0.3 }}
         >
-          <img src="/img/prewed/DSC_6295.JPG" alt="test" />
+          <Image
+            className="prewed-img"
+            fill
+            src="/img/prewed/DSC_6295.webp"
+            alt="gambar-prewed"
+          />
         </motion.div>
         <motion.div
           className="prewed"
           {...fadeInScale}
           transition={{ delay: 0.4 }}
         >
-          <img src="/img/prewed/DSC_6264.JPG" alt="test" />
+          <Image
+            className="prewed-img"
+            fill
+            src="/img/prewed/DSC_6264.webp"
+            alt="gambar-prewed"
+          />
         </motion.div>
         <motion.div
           className="prewed"
           {...fadeInScale}
           transition={{ delay: 0.5 }}
         >
-          <img src="/img/prewed/DSC_6283.JPG" alt="test" />
+          <Image
+            className="prewed-img"
+            fill
+            src="/img/prewed/DSC_6283.webp"
+            alt="gambar-prewed"
+          />
         </motion.div>
         <motion.div
           className="prewed"
           {...fadeInScale}
           transition={{ delay: 0.6 }}
         >
-          <img src="/img/prewed/DSC_6263.JPG" alt="test" />
+          <Image
+            className="prewed-img"
+            fill
+            src="/img/prewed/DSC_6263.webp"
+            alt="gambar-prewed"
+          />
         </motion.div>
       </div>
     </section>

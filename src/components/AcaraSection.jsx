@@ -71,7 +71,7 @@ export default function AcaraSection() {
         {/* Reception Card */}
         <motion.div className="reception__card" {...slideUp}>
           <div className="reception-date">
-            <h3>15 June 2025 | 09:45 WIB</h3>
+            <h3>15 June 2025 | 10:00 WIB</h3>
             <h1>Resepsi</h1>
           </div>
           <div className="reception-place">

@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { AyatQuran } from "./AyatAlQuran";
 import Decoration from "./Decoration";
+import { useRouter } from "next/router";
 
 const fadeUp = {
   initial: { opacity: 0, y: 50 },
@@ -25,19 +26,9 @@ const fadeRight = {
   viewport: { once: false, amount: 0.3 },
 };
 
-export default function HeroSection() {
-  const [audioUrl, setAudioUrl] = useState(null);
+export default function HeroSection({ name }) {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-
-  useEffect(() => {
-    fetch("/audio/Enchanted.mp3")
-      .then((res) => res.blob())
-      .then((blob) => {
-        const url = URL.createObjectURL(blob);
-        setAudioUrl(url);
-      });
-  }, []);
 
   const toggleMusic = () => {
     const audio = audioRef.current;
@@ -52,8 +43,8 @@ export default function HeroSection() {
       <section className="hero-section">
         <div className="hero-section__wrapper">
           <div className="hero-section__text-box">
+            <p>{name}</p>
             <motion.h3 {...fadeUp}>You're Invited to Our Wedding</motion.h3>
-
             <div className="hero-section__name-box">
               <motion.h1 {...fadeUp} transition={{ duration: 0.8, delay: 0.2 }}>
                 Dianita & Wahyu
@@ -91,7 +82,15 @@ export default function HeroSection() {
               {isPlaying ? <FaPause /> : <FaPlay />}
             </button>
 
-            {audioUrl && <audio ref={audioRef} src={audioUrl} loop />}
+            <audio
+              ref={audioRef}
+              src="/audio/Enchanted.mp3"
+              type="audio/mpeg"
+              preload="auto"
+              loop
+              controlsList="nodownload"
+            />
+
             <input
               type="range"
               min="0"
