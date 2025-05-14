@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Carousel from "./Carousel";
 
 export function Gallery() {
   const fadeInScale = {
@@ -16,6 +17,11 @@ export function Gallery() {
         <h2>GALLERY</h2>
         <span className="line"></span>
       </div>
+
+      {/* carousel */}
+      <Carousel />
+
+      {/* Gallery */}
       <div className="gallery-container">
         <motion.div
           className="prewed"

@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin "daisyui";
 
 :root {
   --background: #EEE9DA;
@@ -15,11 +16,20 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  color: black;
 }
 
 html, body {
   max-width: 100%;
   overflow-x: hidden;
+}
+
+.bg-cream {
+  background-color: #DED0B6;
+}
+
+.icon-cream {
+  color: var(--cream);
 }
 
 .music-section {
@@ -644,19 +654,17 @@ html, body {
 }
 .gallery-container {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
   padding: 35px 30px;
-  gap: 15px;
   width: 100%;
-  height: auto;
+  height: 400px;
 }
 
 .prewed {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
 }
 
 .prewed img {
@@ -691,7 +699,7 @@ html, body {
   height: auto;
 }
 
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
   .hero-section {
     display: flex;
     justify-content: center;
@@ -790,6 +798,21 @@ html, body {
     width: 90%;
     height: auto;
     padding: 20px;
+  }
+  
+  /* Gallery */
+  .gallery-container {
+    display: flex;
+    padding: 0;
+    flex-wrap: wrap;
+    height: auto;
+    padding: 20px 0;
+    gap: 15px;
+  }
+
+  .prewed {
+    width: 125px;
+    height: 160px;
   }
 
   .story__grid {

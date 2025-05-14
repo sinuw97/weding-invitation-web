@@ -43,7 +43,7 @@ export default function HeroSection({ name }) {
       <section className="hero-section">
         <div className="hero-section__wrapper">
           <div className="hero-section__text-box">
-            <p>{name}</p>
+            <p>{name || "Anda"}</p>
             <motion.h3 {...fadeUp}>You're Invited to Our Wedding</motion.h3>
             <div className="hero-section__name-box">
               <motion.h1 {...fadeUp} transition={{ duration: 0.8, delay: 0.2 }}>
