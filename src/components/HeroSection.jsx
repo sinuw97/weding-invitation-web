@@ -113,13 +113,13 @@ export default function HeroSection({ name }) {
           {...fadeLeft}
           transition={{ delay: 0.2 }}
         >
-          <h3>Dianita Agna P</h3>
+          <h3>Dianita Agna P. A.Md.Keb</h3>
           <p>The Bride</p>
         </motion.div>
 
         {/* Teks dan Foto Groom */}
         <motion.div className="text groom-text" {...fadeRight}>
-          <h3>Wahyu Utomo</h3>
+          <h3>Wahyu Utomo S.E</h3>
           <p id="groom">The Groom</p>
         </motion.div>
         <motion.div
