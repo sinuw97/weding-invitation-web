@@ -60,7 +60,7 @@ export default function HeroSection({ name }) {
               <span
                 id="date"
               >
-                15 June 2025 <br /> 09:00 WIB
+                15 June 2025 <br /> 10:00 WIB
               </span>
             </div>
 
