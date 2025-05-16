@@ -1,14 +1,16 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
 @plugin "daisyui";
 
 :root {
-  --background: #EEE9DA;
-  --light-blue: #BDCDD6;
-  --sky-blue: #93BFCF;
-  --dark-blue: #6096B4;
-  --darker-blue:#254f65B4;
-  --beige-cream: #DED0B6;
-  --cream: #FAEED1;
+  --background: #eee9da;
+  --light-blue: #bdcdd6;
+  --sky-blue: #93bfcf;
+  --dark-blue: #6096b4;
+  --darker-blue: #254f65b4;
+  --beige-cream: #ded0b6;
+  --cream: #faeed1;
   --grayish-blue: #607274;
 }
 
@@ -19,18 +21,20 @@
   color: black;
 }
 
-html, body {
+html,
+body {
   max-width: 100%;
   overflow-x: hidden;
 }
 
-.bg-cream {
-  background-color: #DED0B6;
+header {
+  height: auto;
 }
 
-.icon-cream {
-  color: var(--cream);
+.salam-pembuka {
+  border: none;
 }
+
 
 .music-section {
   display: flex;
@@ -43,12 +47,13 @@ html, body {
 }
 
 .hero-section {
-  background-image: linear-gradient(to top, #FAEED1, #00000000), url('/img/prewed/DSC_6316.webp');
+  background-image: linear-gradient(to top, #faeed1, #00000000),
+    url("/img/prewed/DSC_6316.webp");
   background-color: var(--cream);
   background-position: center;
   background-size: cover;
   width: 100%;
-  height: 110vh;
+  height: auto;
 }
 
 .hero-section__wrapper {
@@ -68,10 +73,17 @@ html, body {
   font-family: "Ubuntu", sans-serif;
 }
 
+.guest-name {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+
 .hero-section__name-box {
   margin: 48px 0px;
-  font-size: 50pt;
-  font-family: 'Great Vibes', cursive;
+  font-family: "ConeriaScript", sans-serif;
+}
+
+.hero-section__name-box h1 {
+  font-size: 1.05em;
 }
 
 .date-time {
@@ -93,13 +105,13 @@ html, body {
 }
 
 #date_time {
-  font-size: 15pt;
+  font-size: 1em;
   margin: 0;
   padding: 0;
 }
 
 #date {
-  font-size: 27pt;
+  font-size: 1.5em;
   margin: 0;
 }
 
@@ -156,13 +168,13 @@ html, body {
 
 .foto {
   background-color: #ccc;
-  width: 80%;
-  height: 450px;
+  width: 90%;
+  height: 350px;
   justify-self: center;
 }
 
 .bride-photo {
-  background-image: url('/img/prewed/the-bride-mirror1.webp');
+  background-image: url("/img/prewed/the-bride-mirror1.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -186,7 +198,7 @@ html, body {
 }
 
 .groom-photo {
-  background-image: url('/img/prewed/the-groom-mirror1.webp');
+  background-image: url("/img/prewed/the-groom-mirror1.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -196,8 +208,7 @@ html, body {
 
 .text h3 {
   font-size: 45px;
-  font-family: 'Great Vibes', cursive;
-  border-bottom: 1px solid #000;
+  font-family: "ConeriaScript", sans-serif;
   margin: 0;
 }
 
@@ -228,7 +239,7 @@ html, body {
 }
 
 /* place-timeline-section */
-.place-timeline-section{
+.place-timeline-section {
   width: 100%;
   height: auto;
   background-color: var(--cream);
@@ -250,7 +261,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 38px;
+  font-size: 2rem;
   gap: 20px;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
@@ -298,11 +309,11 @@ html, body {
 }
 
 /* Ceremony n Reception card */
-.ceremony-reception-section{
+.ceremony-reception-section {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 40PX;
+  margin-bottom: 40px;
 }
 
 .ceremony__card,
@@ -481,7 +492,7 @@ html, body {
 .gift-card {
   width: 375px;
   height: 210px;
-  background-color:  var(--light-blue);
+  background-color: var(--light-blue);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -514,7 +525,7 @@ html, body {
   font-weight: bold;
 }
 
-.card__logo img{
+.card__logo img {
   width: 65px;
   height: 65px;
 }
@@ -626,7 +637,7 @@ html, body {
   flex-direction: column;
 }
 
-.form__doa span{
+.form__doa span {
   font-size: x-small;
   font-style: italic;
 }
@@ -699,13 +710,30 @@ html, body {
   height: auto;
 }
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
+
+  * {
+    color: black;
+  }
+
+  button {
+    text-decoration: none;
+  }
+
+  .decoration {
+    border: none;
+  }
+
   .hero-section {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    padding: 40px 20px;
+    padding: 70px 20px;
+  }
+
+  .guest-name {
+    font-size: 1.15rem;
   }
 
   .hero-section__wrapper {
@@ -716,24 +744,43 @@ html, body {
   .hero-section__text-box {
     width: 100%;
     max-width: 633px;
-    font-size: 14pt;
+  }
+
+  .hero-section__text-box {
+    font-size: 1.2rem;
   }
 
   .hero-section__name-box {
-    font-size: 32pt;
+    font-weight: bold;
+    font-size: 2.2rem;
   }
 
-  .hero-section__button {
-    padding-top: 25px;
+  .hero-section__button button {
+    text-decoration: none;
+    border: none;
   }
 
   .hero-section__button button {
     background-color: var(--light-blue);
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .date-time {
-    padding-top: 200px;
+    font-size: 1.15rem;
+    padding-top: 50px;
+  }
+
+  .salam-pembuka {
+    padding: 25px 20px;
+    border: none;
+    box-shadow: none;
+    background-color: var(--cream);
+    text-align: center;
+  }
+
+  .salam-pembuka .bismilah {
+    font-size: 1.3rem;
+    font-family: "ConeriaScript", sans-serif;
   }
 
   .photo {
@@ -753,23 +800,33 @@ html, body {
     text-align: center;
     width: 100%;
   }
-  .text h3{
-    font-size: 3em;
+
+  .text h3 {
+    font-size: 1.5em;
+    font-weight: bold;
     border-bottom: 1px solid black;
+  }
+
+  .with {
+    font-size: 1.5rem;
+    font-family: "Ubuntu", sans-serif;
   }
 
   .groom-text {
     text-align: center;
     width: 100%;
-    order: 4;
-  }
-
-  .groom-photo {
-    order: 3;
   }
 
   #groom {
     text-align: center;
+  }
+
+  .wedding-day {
+    font-size: 1.5rem;
+  }
+
+  .bar-divider  {
+    font-size: 1.6rem;
   }
 
   .ceremony-reception-section {
@@ -794,12 +851,28 @@ html, body {
     gap: 20px;
   }
 
+  .alamat-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gift__info h3{
+    font-weight: normal;
+    font-size: 1.2rem;
+  }
+
+  .card__toggle {
+    background-color: transparent;
+    border: none;
+  }
+
   .gift-card {
     width: 90%;
     height: auto;
     padding: 20px;
   }
-  
+
   /* Gallery */
   .gallery-container {
     display: flex;
@@ -849,7 +922,7 @@ html, body {
   .rsvp__form {
     width: 90%;
   }
-  
+
   .footer__text {
     font-size: 1.2rem;
     padding: 25px 25px;

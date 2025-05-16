@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import db from "../firebase.js";
+import { FaLocationDot } from "react-icons/fa6";
 
 import { collection, addDoc } from "firebase/firestore";
 
@@ -146,15 +147,13 @@ export function RSVPForm() {
             berikut
           </motion.h3>
         </div>
-        <div className="gift-card__container">
-          <motion.div className="gift-card" {...slideUp}>
-            <div className="card_alamat-info">
-              <p>
-                Jl Kaliwidas, Kp. Mertodranan RT 03 RW 03 Kel Pasarkliwon, Kec
-                Pasarkliwon Surakarta 57118
-              </p>
+
+        <div className="alamat-btn">
+          <button type="button" className="view-location">
+            <div className="icon__text">
+              <FaLocationDot /> Lihat Alamat
             </div>
-          </motion.div>
+          </button>
         </div>
       </div>
       {/* RSVP */}

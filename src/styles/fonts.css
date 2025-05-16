@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'ConeriaScript';
+  src: url('/fonts/ConeriaScriptDemo.woff2') format('woff2'),
+       url('/fonts/ConeriaScriptDemo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ConeriaScriptSlanted';
+  src: url('/fonts/ConeriaScriptSlantedDemo.woff2') format('woff2'),
+       url('/fonts/ConeriaScriptSlantedDemo.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}

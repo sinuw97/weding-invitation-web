@@ -9,7 +9,7 @@ const fadeInScale = {
 
 export default function Decoration() {
   return (
-    <div className="decoration">
+    <div className="decoration border-none shadow-none ring-0">
       <motion.img
         src="/img/logo/rose-divider-2.svg"
         {...fadeInScale}
