@@ -7,6 +7,7 @@ import db from "../firebase.js";
 import { FaLocationDot } from "react-icons/fa6";
 
 import { collection, addDoc } from "firebase/firestore";
+import Link from "next/link.js";
 
 const fadeInScale = {
   initial: { opacity: 0, scale: 0.8 },
@@ -149,11 +150,11 @@ export function RSVPForm() {
         </div>
 
         <div className="alamat-btn">
-          <button type="button" className="view-location">
+          <Link type="button" className="view-location" href="https://maps.app.goo.gl/xZoj7PFneusvfDYG9">
             <div className="icon__text">
               <FaLocationDot /> Lihat Alamat
             </div>
-          </button>
+          </Link>
         </div>
       </div>
       {/* RSVP */}

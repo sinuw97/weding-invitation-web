@@ -18,12 +18,12 @@ const slideUp = {
   viewport: { once: false, amount: 0.3 },
 };
 
-  const fadeInSlide = {
-    initial: { opacity: 0, x: -50 },
-    whileInView: { opacity: 1, x: 0 },
-    transition: { duration: 0.8, ease: "easeOut" },
-    viewport: { once: false, amount: 0.3 },
-  };
+const fadeInSlide = {
+  initial: { opacity: 0, x: -50 },
+  whileInView: { opacity: 1, x: 0 },
+  transition: { duration: 0.8, ease: "easeOut" },
+  viewport: { once: false, amount: 0.3 },
+};
 
 const fadeInText = {
   initial: { opacity: 0 },
@@ -64,7 +64,10 @@ export default function AcaraSection() {
           </div>
           <button type="button" className="view-location">
             <div className="icon__text">
-              <FaLocationDot /> Lihat Lokasi
+              <FaLocationDot />
+              <Link href="https://maps.app.goo.gl/qyjue2BJ8X5SNWqb9">
+                Lihat Lokasi
+              </Link>
             </div>
           </button>
         </motion.div>
@@ -82,9 +85,16 @@ export default function AcaraSection() {
               </span>
             </p>
           </div>
-          <button type="button" className="view-location">
+          <button
+            type="button"
+            className="view-location"
+            href="https://maps.app.goo.gl/8FRRpCxJnMCuPLb47"
+          >
             <div className="icon__text">
-              <FaLocationDot /> Lihat Lokasi
+              <FaLocationDot />
+              <Link href="https://maps.app.goo.gl/qyjue2BJ8X5SNWqb9">
+                Lihat Lokasi
+              </Link>
             </div>
           </button>
         </motion.div>
