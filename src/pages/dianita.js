@@ -5,6 +5,8 @@ export default function DianitaPage() {
     withButton: false,
     date: "15 June 2025",
     time: "10.00",
+    pasutriName: "Dianita & Wahyu",
+    acara: "pernikahan",
     countdownDate: new Date("2025-06-15T10:00:00+07:00"),
     cards: 2,
     weddingDay: "Sunday, 15 June 2025",

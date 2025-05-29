@@ -5,6 +5,8 @@ export default function WahyuPage() {
     withButton: true,
     date: "21 Juni 2025",
     time: "09.00",
+    pasutriName: "Wahyu & Dianita",
+    acara: "ngunduh mantu",
     countdownDate: new Date("2025-06-21T09:00:00+07:00"),
     cards: 1,
     weddingDay: "Minggu, 21 Juni 2025",

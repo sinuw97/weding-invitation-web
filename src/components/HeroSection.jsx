@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { fadeUp } from "@/utils/animations";
 
-export default function HeroSection({ name, onOpen, date, time }) {
+export default function HeroSection({ name, onOpen, date, time, pasutriName }) {
   return (
     <header>
       {/* Hero section */}
@@ -12,7 +12,7 @@ export default function HeroSection({ name, onOpen, date, time }) {
             <motion.h3 {...fadeUp}>You're Invited to Our Wedding</motion.h3>
             <div className="hero-section__name-box">
               <motion.h1 {...fadeUp} transition={{ duration: 0.8, delay: 0.2 }}>
-                Dianita & Wahyu
+                {pasutriName}
               </motion.h1>
             </div>
 

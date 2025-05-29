@@ -60,13 +60,17 @@ export default function InvitationPage({ variant, data }) {
           onOpen={handlerOpenInvitation}
           date={data.date}
           time={data.time}
+          pasutriName={data.pasutriName}
         />
       )}
 
       {isOpened && (
         <>
           <main>
-            <PasutriSection />
+            <PasutriSection
+              acara={data.acara}
+              variant={variant}
+            />
             <audio
               ref={audioRef}
               src={
