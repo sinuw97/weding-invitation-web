@@ -1,4 +1,4 @@
-import { fadeUp, fadeLeft, fadeRight } from "@/utils/animations";
+import { fadeUp, fadeLeft, fadeRight, fadeInText } from "@/utils/animations";
 import { AyatQuran } from "./AyatAlQuran";
 import Decoration from "./Decoration";
 import { motion } from "framer-motion";
@@ -8,11 +8,11 @@ export default function PasutriSection() {
     <>
       <div className="salam-pembuka border-none shadow-none ring-0">
         <Decoration />
-        <p className="bismilah">Bismillahirrahmanirrahim</p>
-        <p>
+        <motion.p className="bismilah" {...fadeInText}>Bismillahirrahmanirrahim</motion.p>
+        <motion.p {...fadeUp}>
           Dengan memohon rahmat dan ridha Allah SWT, kami bermaksud
           menyelenggarakan pernikahan putra/putri kami
-        </p>
+        </motion.p>
       </div>
       <section className="pasutri-section">
         {/* Foto dan Nama Bride */}

@@ -3,41 +3,27 @@ import { LuClipboardList } from "react-icons/lu";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import {
+  fadeInScale,
+  fadeInSlide,
+  slideUp,
+  fadeInText,
+} from "@/utils/animations.js";
 import db from "../firebase.js";
-import { FaLocationDot } from "react-icons/fa6";
-
+import { IoLocationOutline } from "react-icons/io5";
 import { collection, addDoc } from "firebase/firestore";
 import Link from "next/link.js";
 
-const fadeInScale = {
-  initial: { opacity: 0, scale: 0.8 },
-  whileInView: { opacity: 1, scale: 1 },
-  transition: { duration: 0.8, ease: "easeOut" },
-  viewport: { once: false, amount: 0.3 },
-};
-
-const slideUp = {
-  initial: { opacity: 0, y: 50 },
-  whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, ease: "easeOut" },
-  viewport: { once: false, amount: 0.3 },
-};
-
-const fadeInSlide = {
-  initial: { opacity: 0, x: -50 },
-  whileInView: { opacity: 1, x: 0 },
-  transition: { duration: 0.8, ease: "easeOut" },
-  viewport: { once: false, amount: 0.3 },
-};
-
-const fadeInText = {
-  initial: { opacity: 0 },
-  whileInView: { opacity: 1 },
-  transition: { duration: 1, ease: "easeOut" },
-  viewport: { once: false, amount: 0.3 },
-};
-
-export function RSVPForm() {
+export function RSVPForm({
+  withButton,
+  bankName,
+  logoBank,
+  noRek,
+  noHp,
+  logoGopay,
+  namaPemilik,
+  alamat,
+}) {
   const [copyStatus, setCopyStatus] = useState("");
   const [kehadiran, setKehadiran] = useState("");
   const [name, setName] = useState("");
@@ -72,9 +58,6 @@ export function RSVPForm() {
     } catch (err) {
       console.error("Error adding document: ", err);
     }
-    console.log("RSVP data: ", dataYgDikirim);
-    console.log("Data Berhasil Dikirim");
-    toast.success("Kehadiranmu telah disimpan!");
     // Reset form
     setName("");
     setKehadiran("");
@@ -97,50 +80,100 @@ export function RSVPForm() {
             Namun, jika berkenan memberikan tanda kasih, berikut detailnya:
           </motion.h3>
         </div>
-        <div className="gift-card__container">
-          {/* BNI */}
-          <motion.div className="gift-card" {...slideUp}>
-            <div className="card__logo">
-              <p>Bank BNI</p>
-              <img src="/img/logo/logo-bni.svg" alt="" />
-            </div>
-            <div className="card_info">
-              <p>No. Rek</p>
-              <div className="no__rek">
-                <button
-                  className="card__toggle"
-                  onClick={() => handlerCopy("345644104")}
-                  aria-label="Copy Rekening"
-                >
-                  <LuClipboardList className="clipboard" />
-                </button>
-                <span className="rek__number">345644104</span>
+        {withButton ? (
+          <details className="gift-details">
+            <summary>Lihat Detail</summary>
+            <div className="one-gift-card__container">
+              <div className="bank-info">
+                <div className="bank-name">
+                  <p>{bankName}</p>
+                  <img src={`/img/logo/${logoBank}`} alt="logo-bank" />
+                </div>
+                <div className="rekening">
+                  <p>No. Rek</p>
+                  <div className="no__rek">
+                    <button
+                      className="card__toggle"
+                      onClick={() => handlerCopy(`${noRek}`)}
+                      aria-label="Copy Rekening"
+                    >
+                      <LuClipboardList className="clipboard" />
+                    </button>
+                    <span className="rek__number">{noRek}</span>
+                  </div>
+                </div>
               </div>
-            </div>
-            <p className="card__nama">Dianita Agna Primaningtyas</p>
-          </motion.div>
-          {/* GOPAY */}
-          <motion.div className="gift-card" {...slideUp}>
-            <div className="card__logo">
-              <p>Gopay</p>
-              <img src="/img/logo/logo-gopay.svg" alt="" />
-            </div>
-            <div className="card_info">
-              <p>No. Hp</p>
-              <div className="no__rek">
-                <button
-                  className="card__toggle"
-                  onClick={() => handlerCopy("081573548098")}
-                  aria-label="Copy Hp"
-                >
-                  <LuClipboardList className="clipboard" />
-                </button>
-                <span className="rek__number">081573548098</span>
+              <div className="rekerning-divider">
+                <div className="divider"></div>
               </div>
+              <div className="bank-info">
+                <div className="bank-name">
+                  <p>Gopay</p>
+                  <img src={`/img/logo/${logoGopay}`} alt="logo-gopay" />
+                </div>
+                <div className="rekening">
+                  <p>No. Hp</p>
+                  <div className="no__rek">
+                    <button
+                      className="card__toggle"
+                      onClick={() => handlerCopy(`${noHp}`)}
+                      aria-label="Copy Hp"
+                    >
+                      <LuClipboardList className="clipboard" />
+                    </button>
+                    <span className="rek__number">{noHp}</span>
+                  </div>
+                </div>
+              </div>
+              <div className="nama-pemilik">{namaPemilik}</div>
             </div>
-            <p className="card__nama">Dianita Agna Primaningtyas</p>
-          </motion.div>
-        </div>
+          </details>
+        ) : (
+          <div className="gift-card__container">
+            {/* BNI */}
+            <motion.div className="gift-card" {...slideUp}>
+              <div className="card__logo">
+                <p>{bankName}</p>
+                <img src={`/img/logo/${logoBank}`} alt="logo-bank" />
+              </div>
+              <div className="card_info">
+                <p>No. Rek</p>
+                <div className="no__rek">
+                  <button
+                    className="card__toggle"
+                    onClick={() => handlerCopy(`${noRek}`)}
+                    aria-label="Copy Rekening"
+                  >
+                    <LuClipboardList className="clipboard" />
+                  </button>
+                  <span className="rek__number">{noRek}</span>
+                </div>
+              </div>
+              <p className="card__nama">{namaPemilik}</p>
+            </motion.div>
+            {/* GOPAY */}
+            <motion.div className="gift-card" {...slideUp}>
+              <div className="card__logo">
+                <p>Gopay</p>
+                <img src={`/img/logo/${logoGopay}`} alt="logo-gopay" />
+              </div>
+              <div className="card_info">
+                <p>No. Hp</p>
+                <div className="no__rek">
+                  <button
+                    className="card__toggle"
+                    onClick={() => handlerCopy(`${noHp}`)}
+                    aria-label="Copy Hp"
+                  >
+                    <LuClipboardList className="clipboard" />
+                  </button>
+                  <span className="rek__number">{noHp}</span>
+                </div>
+              </div>
+              <p className="card__nama">{namaPemilik}</p>
+            </motion.div>
+          </div>
+        )}
 
         <div className="gift__info">
           <motion.h3 {...fadeInScale}>
@@ -150,9 +183,9 @@ export function RSVPForm() {
         </div>
 
         <div className="alamat-btn">
-          <Link type="button" className="view-location" href="https://maps.app.goo.gl/xZoj7PFneusvfDYG9">
+          <Link type="button" className="view-location" href={alamat}>
             <div className="icon__text">
-              <FaLocationDot /> Lihat Alamat
+              <IoLocationOutline /> Lihat Alamat
             </div>
           </Link>
         </div>
@@ -219,7 +252,7 @@ export function RSVPForm() {
             </div>
             <div className="form__doa">
               <label htmlFor="doa">Ucapan dan Doa</label>
-              <span>**Kirimkan ucapan dan doa mu untuk pengantin</span>
+              <span>**Kirimkan ucapan dan doa mu untuk pasutri</span>
               <textarea
                 id="doa"
                 name="doa"

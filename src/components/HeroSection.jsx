@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { fadeUp } from "@/utils/animations";
 
-export default function HeroSection({ name, onOpen }) {
+export default function HeroSection({ name, onOpen, date, time }) {
   return (
     <header>
       {/* Hero section */}
@@ -19,7 +19,7 @@ export default function HeroSection({ name, onOpen }) {
             <div className="date-time">
               <p id="date_time">Date & Time</p>
               <span id="date">
-                15 June 2025 <br /> 10:00 WIB
+                {date} <br /> {time} WIB
               </span>
             </div>
 

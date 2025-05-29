@@ -18,7 +18,6 @@
 //   );
 // }
 
-// pages/index.js
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
