@@ -885,7 +885,6 @@ header {
     display: flex;
     padding: 10px 0;
     justify-content: center;
-    gap: 10px;
   }
 
   .gift-details summary {
@@ -913,6 +912,7 @@ header {
   }
 
   .one-gift-card__container {
+    margin-top: 10px;
     background-color: var(--light-blue);
     border-radius: 15px;
     box-shadow: 3px 2px 5px var(--grayish-blue);
