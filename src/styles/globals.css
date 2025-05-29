@@ -876,6 +876,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 6px;
   }
 
   .gift-details {
@@ -893,6 +894,7 @@ header {
     padding: 5px 15px;
     border-radius: 20px;
     color: white;
+    text-align: center;
   }
 
   .gift-btn p {
