@@ -81,53 +81,55 @@ export function RSVPForm({
           </motion.h3>
         </div>
         {withButton ? (
-          <details className="gift-details">
-            <summary>Lihat Detail</summary>
-            <div className="one-gift-card__container">
-              <div className="bank-info">
-                <div className="bank-name">
-                  <p>{bankName}</p>
-                  <img src={`/img/logo/${logoBank}`} alt="logo-bank" />
-                </div>
-                <div className="rekening">
-                  <p>No. Rek</p>
-                  <div className="no__rek">
-                    <button
-                      className="card__toggle"
-                      onClick={() => handlerCopy(`${noRek}`)}
-                      aria-label="Copy Rekening"
-                    >
-                      <LuClipboardList className="clipboard" />
-                    </button>
-                    <span className="rek__number">{noRek}</span>
+          <div className="gift-with-btn-container">
+            <details className="gift-details">
+              <summary>Lihat Detail</summary>
+              <div className="one-gift-card__container">
+                <div className="bank-info">
+                  <div className="bank-name">
+                    <p>{bankName}</p>
+                    <img src={`/img/logo/${logoBank}`} alt="logo-bank" />
+                  </div>
+                  <div className="rekening">
+                    <p>No. Rek</p>
+                    <div className="no__rek">
+                      <button
+                        className="card__toggle"
+                        onClick={() => handlerCopy(`${noRek}`)}
+                        aria-label="Copy Rekening"
+                      >
+                        <LuClipboardList className="clipboard" />
+                      </button>
+                      <span className="rek__number">{noRek}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="rekerning-divider">
-                <div className="divider"></div>
-              </div>
-              <div className="bank-info">
-                <div className="bank-name">
-                  <p>Gopay</p>
-                  <img src={`/img/logo/${logoGopay}`} alt="logo-gopay" />
+                <div className="rekerning-divider">
+                  <div className="divider"></div>
                 </div>
-                <div className="rekening">
-                  <p>No. Hp</p>
-                  <div className="no__rek">
-                    <button
-                      className="card__toggle"
-                      onClick={() => handlerCopy(`${noHp}`)}
-                      aria-label="Copy Hp"
-                    >
-                      <LuClipboardList className="clipboard" />
-                    </button>
-                    <span className="rek__number">{noHp}</span>
+                <div className="bank-info">
+                  <div className="bank-name">
+                    <p>Gopay</p>
+                    <img src={`/img/logo/${logoGopay}`} alt="logo-gopay" />
+                  </div>
+                  <div className="rekening">
+                    <p>No. Hp</p>
+                    <div className="no__rek">
+                      <button
+                        className="card__toggle"
+                        onClick={() => handlerCopy(`${noHp}`)}
+                        aria-label="Copy Hp"
+                      >
+                        <LuClipboardList className="clipboard" />
+                      </button>
+                      <span className="rek__number">{noHp}</span>
+                    </div>
                   </div>
                 </div>
+                <div className="nama-pemilik">{namaPemilik}</div>
               </div>
-              <div className="nama-pemilik">{namaPemilik}</div>
-            </div>
-          </details>
+            </details>
+          </div>
         ) : (
           <div className="gift-card__container">
             {/* BNI */}
