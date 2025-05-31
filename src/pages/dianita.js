@@ -23,7 +23,7 @@ export default function DianitaPage() {
     noRek: "345644104",
     noHp: "081573548098",
     namaPemilik: "Dianita Agna Primaningtyas",
-    alamat: "https://maps.app.goo.gl/A7dUDQf1WS8u6Dii6",
+    alamat: "Jl. Kaliwidas, Ps. Kliwon, Kec. Ps. Kliwon, Kota Surakarta, Jawa Tengah 57118",
   };
 
   return <InvitationPage variant="dianita" data={dianitaData} />;

@@ -862,9 +862,11 @@ header {
   }
 
   .alamat-btn {
-    display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.15rem;
+    padding: 0px 20px;
+    font-weight: bold;
   }
 
   .gift__info h3 {

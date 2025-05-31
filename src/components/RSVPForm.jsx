@@ -10,9 +10,7 @@ import {
   fadeInText,
 } from "@/utils/animations.js";
 import db from "../firebase.js";
-import { IoLocationOutline } from "react-icons/io5";
 import { collection, addDoc } from "firebase/firestore";
-import Link from "next/link.js";
 
 export function RSVPForm({
   withButton,
@@ -184,12 +182,10 @@ export function RSVPForm({
           </motion.h3>
         </div>
 
-        <div className="alamat-btn">
-          <Link type="button" className="view-location" href={alamat}>
-            <div className="icon__text">
-              <IoLocationOutline /> Lihat Alamat
-            </div>
-          </Link>
+        <div className="alamat-btn text-center">
+          <br />
+          <h3> {namaPemilik}</h3>
+          <span>{alamat}</span>
         </div>
       </div>
       {/* RSVP */}

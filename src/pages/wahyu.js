@@ -22,7 +22,7 @@ export default function WahyuPage() {
     noRek: "701734587100",
     noHp: "085725034557",
     namaPemilik: "Wahyu Utomo",
-    alamat: "https://goo.gl/maps/CP24TGRNx7jmup4v5",
+    alamat: "PT. NASMOCO BENGAWAN MOTOR, Jl. Slamet Riyadi, No.558, Jajar, Laweyan, Kota Surakarta 57144",
   };
   
   return <InvitationPage variant="wahyu" data={wahyuData}/>
