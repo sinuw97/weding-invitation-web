@@ -8,6 +8,7 @@ import {
   fadeInSlide,
   slideUp,
   fadeInText,
+  fadeUp,
 } from "@/utils/animations.js";
 import db from "../firebase.js";
 import { collection, addDoc } from "firebase/firestore";
@@ -80,7 +81,7 @@ export function RSVPForm({
         </div>
         {withButton ? (
           <div className="gift-with-btn-container">
-            <details className="gift-details">
+            <motion.details className="gift-details" {...fadeUp}>
               <summary>Lihat Detail</summary>
               <div className="one-gift-card__container">
                 <div className="bank-info">
@@ -126,7 +127,7 @@ export function RSVPForm({
                 </div>
                 <div className="nama-pemilik">{namaPemilik}</div>
               </div>
-            </details>
+            </motion.details>
           </div>
         ) : (
           <div className="gift-card__container">
@@ -182,10 +183,16 @@ export function RSVPForm({
           </motion.h3>
         </div>
 
-        <div className="alamat-btn text-center">
-          <br />
-          <h3> {namaPemilik}</h3>
-          <span>{alamat}</span>
+        <div className="alamat-with-btn-container">
+          <motion.details className="alamat-details" {...fadeUp}>
+            <summary>Lihat Alamat</summary>
+            <motion.div className="one-alamat-card__container p-lr-15" {...slideUp}>
+              <div className="bank-info">
+                <h3 className="m-top-10">{namaPemilik}</h3>
+                <p className="text-center">{alamat}</p>
+              </div>
+            </motion.div>
+          </motion.details>
         </div>
       </div>
       {/* RSVP */}

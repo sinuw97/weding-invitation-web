@@ -9,7 +9,7 @@ export default function WahyuPage() {
     acara: "ngunduh mantu",
     countdownDate: new Date("2025-06-21T09:00:00+07:00"),
     cards: 1,
-    weddingDay: "Minggu, 21 Juni 2025",
+    weddingDay: "Sabtu, 21 Juni 2025",
     weddingPlace: "Kediaman",
     weddingAddress: "Sumberejo RT. 02 RW. 10 Waru, Kebakkramat, Karanganyar",
     weddingGmaps: "https://goo.gl/maps/CP24TGRNx7jmup4v5",

@@ -874,14 +874,16 @@ header {
     font-size: 1.2rem;
   }
 
-  .gift-with-btn-container {
+  .gift-with-btn-container,
+  .alamat-with-btn-container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 6px;
   }
 
-  .gift-details {
+  .gift-details,
+  .alamat-details {
     align-items: center;
     flex-direction: column;
     display: flex;
@@ -889,7 +891,8 @@ header {
     justify-content: center;
   }
 
-  .gift-details summary {
+  .gift-details summary,
+  .alamat-details summary {
     font-size: 1.25rem;
     background-color: var(--dark-blue);
     padding: 5px 15px;
@@ -926,7 +929,8 @@ header {
     padding: 8px 15px;
   }
 
-  .bank-info {
+  .bank-info,
+  .alamat-info {
     font-size: 1.2rem;
     font-weight: bold;
   }
@@ -937,6 +941,14 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
+  }
+
+  .m-top-10 {
+    margin-top: 10px;
+  }
+
+  .p-lr-15 {
+    padding: 0px 15px;
   }
 
   .bank-name img {
