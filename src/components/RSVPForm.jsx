@@ -53,7 +53,7 @@ export function RSVPForm({
       const data = await addDoc(collection(db, "rsvp"), {
         ...dataYgDikirim,
       });
-      console.log("error add doc: ", data.id);
+      toast.success("Data berhasil dikirm!");
     } catch (err) {
       console.error("Error adding document: ", err);
     }
@@ -186,7 +186,7 @@ export function RSVPForm({
         <div className="alamat-with-btn-container">
           <motion.details className="alamat-details" {...fadeUp}>
             <summary>Lihat Alamat</summary>
-            <motion.div className="one-alamat-card__container p-lr-15" {...slideUp}>
+            <motion.div className="one-alamat-card__container" {...slideUp}>
               <div className="bank-info">
                 <h3 className="m-top-10">{namaPemilik}</h3>
                 <p className="text-center">{alamat}</p>

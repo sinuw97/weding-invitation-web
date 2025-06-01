@@ -916,7 +916,8 @@ header {
     padding: 20px;
   }
 
-  .one-gift-card__container {
+  .one-gift-card__container,
+  .one-alamat-card__container {
     margin-top: 10px;
     background-color: var(--light-blue);
     border-radius: 15px;
