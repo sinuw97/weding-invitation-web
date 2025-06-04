@@ -4,7 +4,7 @@ import { RiArrowLeftSLine } from "react-icons/ri";
 export default function Carousel() {
   return (
     <div className="carousel w-full max-h-[400px] bg-cream">
-      <div id="slide1" className="carousel-item relative w-full flex items-center justify-center">
+      {/* <div id="slide1" className="carousel-item relative w-full flex items-center justify-center">
         <img
           src="/img/prewed/DSC_6266.png"
           className="max-h-[300px] w-auto object-contain mx-auto"
@@ -17,7 +17,7 @@ export default function Carousel() {
             <RiArrowRightSLine />
           </a>
         </div>
-      </div>
+      </div> */}
       <div id="slide2" className="carousel-item relative w-full flex items-center justify-center">
         <img
           src="/img/prewed/DSC_6275.png"
@@ -83,7 +83,7 @@ export default function Carousel() {
           <a href="#slide5">
             <RiArrowLeftSLine />
           </a>
-          <a href="#slide1">
+          <a href="#slide2">
             <RiArrowRightSLine />
           </a>
         </div>
